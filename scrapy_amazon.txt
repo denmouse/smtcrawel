@@ -1,0 +1,20 @@
+DEBUG: Retrying <GET http://www.amazon.fr/Amuses-bouche-Peuvent-b%C3%A9n%C3%A9ficier-dAmazon-Premium-Epicerie/s?ie=UTF8&page=1&rh=n%3A6356734031%2Cp_76%3A437878031> 
+(failed 1 times): 503 Service Unavailable
+
+原因： ip 被ban
+解决办法：
+
+Amazon is quite good at banning IPs of the bots. You would have to tweak the DOWNLOAD_DELAY and CONCURRENT_REQUESTS to hit the website less often and be a good web-scraping citizen. And, you would need to rotate IP addresses (you may look into, for instance, crawlera) and user agents.
+
+1. 调整参数设置
+DOWNLOAD_DELAY = 3
+CONCURRENT_REQUESTS=32
+
+2. 使用IP代理
+ 在project 下添加randomproxy.py
+
+randomproxy项目地址：
+
+3.出现 title: Robot Check
+ 说明Amazon在进行机器人检测， 需要上传验证图片
+ captchabustar robot middleware
